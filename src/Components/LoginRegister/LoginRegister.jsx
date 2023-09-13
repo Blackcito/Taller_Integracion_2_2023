@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import '../Assets/css/LoginRegister.css'
-import user_icon from '../Assets/img/usuario.png'
-import email_icon from '../Assets/img/email.png'
-import password_icon from '../Assets/img/contraseña.png'
-import logo from '../Assets/img/Logo.png'
+import './LoginRegister.css'
+import user_icon from '../Assets/usuario.png'
+import email_icon from '../Assets/email.png'
+import password_icon from '../Assets/contraseña.png'
+import logo from '../Assets/Logo.png'
 
 export const LoginRegister = () => {
 
