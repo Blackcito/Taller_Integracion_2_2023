@@ -9,7 +9,12 @@ app.use(cors());
 
 //BASE DE DATOS
 
-const client = process.env.CONNECTION_STRING
+const client = new Client({
+  connectionString: 'postgres://sbadpryx:Qm8lZbio6bbNyqIWTydZcEq_7TA9akGb@berry.db.elephantsql.com/sbadpryx',
+  ssl: {
+    rejectUnauthorized: false, // Opción necesaria si ElephantSQL utiliza SSL
+  },
+});
 
 client.connect()
   .then(() => {
