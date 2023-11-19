@@ -18,7 +18,7 @@ app.use('/api', catalogoController)
 
 //REGISTRO Y LOGIN
 
-app.post('/registro', async (req, res) => {
+app.post('/register', async (req, res) => {
   try {
     const { user, email, pass,type } = req.body;
 
