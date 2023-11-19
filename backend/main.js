@@ -173,8 +173,11 @@ app.post('/api/agregar-al-carrito', async (req, res) => {
 });
 
 
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Servidor funcionando en el puerto ${port}`);
+});
 
-  
 
 
 //  Especifico la consulta SQL
