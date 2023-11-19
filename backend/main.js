@@ -16,7 +16,9 @@ app.use(express.json());
 app.use('/api', catalogoController)
 //app.use('/api', sushiBuildController)
 
-app.post('/register', async (req, res) => {
+//REGISTRO Y LOGIN
+
+app.post('/registro', async (req, res) => {
   try {
     const { user, email, pass,type } = req.body;
 
@@ -175,7 +177,16 @@ app.post('/api/agregar-al-carrito', async (req, res) => {
   
 
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Servidor funcionando en el puerto ${port}`);
-});
+//  Especifico la consulta SQL
+//const sqlQuery = 'SELECT * FROM clientes'
+
+//  Uso la consulta a la base de datos
+//db.query(sqlQuery)
+  //.then(data => {
+  // Maneja los resultados aquí
+    //console.log('Resultados de la consulta:', data)
+  //})
+  //.catch(error => {
+  // Maneja los errores aquí
+    //console.error('Error al ejecutar la consulta:', error)
+  //})
