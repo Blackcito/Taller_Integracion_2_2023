@@ -1,5 +1,15 @@
 const getVentasPorDiaQuery = `
-SELECT diasemana, SUM(cantidadventas) as sumaVentas
+SELECT
+  CASE
+    WHEN diasemana = 'lunes' THEN 'L'
+    WHEN diasemana = 'martes' THEN 'M'
+    WHEN diasemana = 'miércoles' THEN 'Mi'
+    WHEN diasemana = 'jueves' THEN 'J'
+    WHEN diasemana = 'viernes' THEN 'V'
+    WHEN diasemana = 'sábado' THEN 'S'
+    WHEN diasemana = 'domingo' THEN 'D'
+  END as diaInicial,
+  SUM(cantidadventas) as sumaVentas
 FROM ventas
 GROUP BY diasemana
 ORDER BY
@@ -11,7 +21,6 @@ ORDER BY
     WHEN diasemana = 'viernes' THEN 5
     WHEN diasemana = 'sábado' THEN 6
     WHEN diasemana = 'domingo' THEN 7
-    ELSE 8 -- Para cualquier otro valor
   END;
 
 `;
