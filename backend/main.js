@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const { registerUser } = require('./controller/register')
 const { loginUser } = require('./controller/login');
-const { getVentasPorDiaQuery } = require('./query/queries_ventas'); 
+const { getVentasPorDiaQuery, getPedidos } = require('./query/queries_ventas'); 
 const {VerificarToken} = require("./middleware/verifyToken");
 const { updateUserProfile}=require('./controller/updateprofile')
 const db = require('./db/db')
@@ -108,6 +108,27 @@ app.get('/api/ventas-por-dia', async (req, res) => {
     res.status(500).json({ error: 'Error al obtener datos de ventas' });
   }
 });
+
+
+app.get('/api/getPedidos', async (req, res) => {
+  try {
+    const result = await db.many(getPedidos); // Utiliza la consulta importada
+
+    // Verifica si result contiene datos
+    if (result) {
+      // Accede directamente a los datos
+      console.log(result);
+      res.json(result);
+    } else {
+      console.error('La consulta no retornó datos válidos.');
+      res.status(500).json({ error: 'Error al obtener datos de ventas' });
+    }
+  } catch (error) {
+    console.error('Error al obtener datos de ventas:', error);
+    res.status(500).json({ error: 'Error al obtener datos de ventas' });
+  }
+});
+
 
 
 
